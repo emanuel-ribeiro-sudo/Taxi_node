@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize')
 
 const sequelize = new Sequelize('EmpTaxi','sa','Emanuel1.',{
-    dialect:"mssql",
+    dialect:"mysql",
     host:'localhost',
-    port:1433
+    port:3306
 })
 // const sequelize = new Sequelize('EmpTaxi', 'sa', 'Emanuel1.', {
 //     dialect: 'mssql',
@@ -14,5 +14,24 @@ const sequelize = new Sequelize('EmpTaxi','sa','Emanuel1.',{
 //       }
 //     }
 //   })
+// const sequelize = new Sequelize('EmpTaxi', null, null, {
+//   dialect: 'mssql',
+//   dialectOptions: {
+//     authentication: {
+//       type: 'ntlm',
+//       options: {
+//         host: 'DESKTOP-TO2H7EE',
+//         userName: 'sa',
+//         password: 'Emanuel1.',
+//         domain: 'WORKGROUP',
+        
+//       }
+//     },
+//     options: {
+//       server:'DESKTOP-TO2H7EE',
+//       instanceName: 'SQLEXPRESS'
+//     }
+//   }
+// })
 
 module.exports = sequelize;

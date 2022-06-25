@@ -25,6 +25,7 @@ module.exports={
         return res.status(400).json({error: err})
     }
     },
+    
     async update(req,res){
         try{
         await Automoveis.update(req.body,
