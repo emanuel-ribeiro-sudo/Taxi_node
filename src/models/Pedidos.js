@@ -13,7 +13,7 @@ const Pedidos = database.define('pedidos',{
         allowNull:false
     },
     estado: {
-        type:Sequelize.ENUM('Aceite','Recusado'),
+        type:Sequelize.ENUM('Aceite','Recusado','Sem resposta'),
         defaultValue: 'Sem resposta',
         allowNull:false
     },

@@ -15,7 +15,7 @@ const router = express.Router();
 router.get ("/", (req, res) => {
     res.json ("Bem-vindo");
   });
-
+ 
 // router.use(authMiddleware);
   // Users
 router.get('/users' ,UserController.index);
@@ -26,7 +26,7 @@ router.put('/users/:bi',UserController.update);
 
 router.delete('/users/:bi',UserController.delete);
 
-router.post('/users/login',ClientesController.login);
+router.post('/users/login',UserController.login);
 
   // Clientes
   router.get('/clientes' ,ClientesController.index);

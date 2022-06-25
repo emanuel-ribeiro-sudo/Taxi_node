@@ -14,7 +14,7 @@ function generateToken(params = {}){
 module.exports={
     async login(req,res){
         try{
-        const {senha, email} = req.body;
+        const {email,senha} = req.body;
         const user = await User.findOne({where: {email}});
         if (!user){
             return res.status(400).send({
