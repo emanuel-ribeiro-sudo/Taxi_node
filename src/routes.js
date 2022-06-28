@@ -20,7 +20,7 @@ router.get ("/", (req, res) => {
   // Users
 router.get('/users' ,UserController.index);
 
-router.post('/addusers',UserController.store);
+router.post('/addusers',UserController.store); 
 
 router.put('/users/:bi',UserController.update);
 
@@ -43,13 +43,13 @@ router.post('/users/login',UserController.login);
 
 router.get('/users/:biuser/pedidos',PedidosController.index);
 
-router.post('/users/:biuser/pedidos',PedidosController.store);
+router.post('/users/pedidos',PedidosController.store);
 
 router.delete('/users/:id/pedidos',PedidosController.delete);
 
 router.put('/users/:id/pedidos',PedidosController.update);
 
-//  // Pedidos
+// Pedidos
 
 //  router.get('/users/:biuser/pedidos',PedidosController.index);
 

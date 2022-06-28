@@ -4,13 +4,14 @@ const Cliente = require('./Cliente')
 
 const Pedidos = database.define('pedidos',{
     id_Pedido: {
-        type:Sequelize.STRING,
+        type:Sequelize.INTEGER,
         primaryKey:true,
         allowNull:false,
+        autoIncrement:true
     },
     data: {
         type:Sequelize.DATE,
-        allowNull:false
+        allowNull:true
     },
     estado: {
         type:Sequelize.ENUM('Aceite','Recusado','Sem resposta'),

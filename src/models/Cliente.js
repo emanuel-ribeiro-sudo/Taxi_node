@@ -20,7 +20,7 @@ const Cliente = database.define('cliente',{
     },
     password: {
         type:Sequelize.STRING,
-        allowNull:true
+        allowNull:false
     },
     telefone: {
         type:Sequelize.STRING(7),
@@ -28,7 +28,7 @@ const Cliente = database.define('cliente',{
     },
     token: {
         type:Sequelize.STRING,
-        allowNull:false
+        allowNull:true
     },
     // static associate(models){
     //     this.belongsToMany(models.User,{foreignKey:'bi_user', as:'aluga'}); 

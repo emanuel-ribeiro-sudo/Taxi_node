@@ -1,5 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db');
+const Pedidos = require('./Pedidos');
 const User = require('./User')
 const Automoveis = database.define('automoveis',{
     matricula: {
@@ -24,5 +25,8 @@ const Automoveis = database.define('automoveis',{
 )
 User.hasMany(Automoveis,{ 
     foreignKey:'taxista_Id' 
+})
+Automoveis.hasMany(Pedidos,{
+    foreignKey:'automovel'
 })
 module.exports = Automoveis

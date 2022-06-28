@@ -4,13 +4,14 @@ const Pedidos = require('./Pedidos')
 const Automoveis = require('./Automoveis')
 const Servicos = database.define('servicos',{
     id_Servico: {
-        type:Sequelize.STRING,
+        type:Sequelize.INTEGER,
         primaryKey:true,
         allowNull:false,
+        autoIncrement:true
     },
     data_inicio: {
         type:Sequelize.DATE,
-        allowNull:false
+        allowNull:false,
     },
     estado: {
         type:Sequelize.ENUM('Em Curso','Terminado'),
