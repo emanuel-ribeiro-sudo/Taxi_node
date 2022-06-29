@@ -6,6 +6,7 @@
 //     const Cliente = require('./models/Cliente')
 //     const Servicos = require('./models/Servicos')
 //     const Pedidos = require('./models/Pedidos')
+//     const Logs = require('./models/Logs')
 //     await database.sync()
 
    

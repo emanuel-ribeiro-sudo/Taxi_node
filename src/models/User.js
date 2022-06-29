@@ -17,11 +17,11 @@ const User = database.define('user',{
     },
     numero_Licenca: {
         type:Sequelize.STRING(9),
-        allowNull:false
+        allowNull:true
     },
     cargo: {
         type:Sequelize.ENUM('Taxista','Gestor'),
-        defaultValue: 'Taxista', 
+        defaultValue: 'Gestor', 
         allowNull:false
     },
     email: {

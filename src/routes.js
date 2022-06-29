@@ -5,6 +5,7 @@ const UserController = require('./Controllers/userControllers')
 const PedidosController = require('./Controllers/pedidosControllers')
 const ServicosController = require('./Controllers/servicosControllers')
 const ClientesController = require('./Controllers/clienteControllers')
+const LogsController = require('./Controllers/logsControllers')
 
 const authMiddleware = require('./middlewares/auth');
 
@@ -68,5 +69,11 @@ router.post('/automoveis', AutomoveisController.store)
 router.delete('/automoveis/:matricula', AutomoveisController.delete)
 
 router.put('/automoveis/:matricula', AutomoveisController.update)
+
+  //logs
+
+  router.get('/logs', LogsController.index)
+
+  router.post('/logs', LogsController.store)
 
 module.exports = router;
