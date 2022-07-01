@@ -76,4 +76,4 @@ router.put('/automoveis/:matricula', AutomoveisController.update)
 
   router.post('/logs', LogsController.store)
 
-module.exports = router;
+module.exports = router; 

@@ -7,11 +7,9 @@
 //     const Servicos = require('./models/Servicos')
 //     const Pedidos = require('./models/Pedidos')
 //     const Logs = require('./models/Logs')
-//     await database.sync()
-
-   
+//     await database.sync()   
 //  })();
- 
+
 const { request, response } = require('express')
 const express = require('express')
 

@@ -20,8 +20,8 @@ const User = database.define('user',{
         allowNull:true
     },
     cargo: {
-        type:Sequelize.ENUM('Taxista','Gestor'),
-        defaultValue: 'Gestor', 
+        type:Sequelize.ENUM('Taxista','Gestor','Cliente'),
+        defaultValue: 'Cliente', 
         allowNull:false
     },
     email: {
