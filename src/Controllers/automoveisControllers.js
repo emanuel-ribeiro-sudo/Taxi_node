@@ -6,7 +6,7 @@ module.exports={
             if(automoveis == "" || automoveis == null){
                 return res.status(200).send({message:"Nenhum automovel registrado"});
             }
-            return res.status(200).send({automoveis});
+            return res.status(200).send(automoveis);
         } catch (err) {
             return res.status(400).json({ error: err });
         }

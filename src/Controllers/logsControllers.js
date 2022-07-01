@@ -6,7 +6,7 @@ module.exports={
             if(logs == "" || logs == null){
                 return res.status(200).send({message:"Nenhum log registrado"});
             }
-            return res.status(200).send({logs});
+            return res.status(200).send(logs);
         } catch (err) {
             return res.status(400).json({ error: err });
         }
