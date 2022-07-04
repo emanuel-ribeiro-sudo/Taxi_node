@@ -24,7 +24,8 @@ const Automoveis = database.define('automoveis',{
 },
 )
 User.hasMany(Automoveis,{ 
-    foreignKey:'taxista_Id' 
+    foreignKey:'taxista_Id',
+    allowNull:true
 })
 Automoveis.hasMany(Pedidos,{
     foreignKey:'automovel'
