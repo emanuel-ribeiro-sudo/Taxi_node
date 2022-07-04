@@ -6,6 +6,7 @@ const PedidosController = require('./Controllers/pedidosControllers')
 const ServicosController = require('./Controllers/servicosControllers')
 const ClientesController = require('./Controllers/clienteControllers')
 const LogsController = require('./Controllers/logsControllers')
+const ReceitaController = require('./Controllers/receitaControllers')
 
 const authMiddleware = require('./middlewares/auth');
 
@@ -29,6 +30,12 @@ router.delete('/users/:bi',UserController.delete);
 
 router.post('/users/login',UserController.login);
 
+router.post('/users/cargo',UserController.getCargo);
+
+router.post('/users/bi',UserController.getBi);
+
+router.get('/users/:bi',UserController.getOne);
+
   // Clientes
   router.get('/clientes' ,ClientesController.index);
 
@@ -42,13 +49,24 @@ router.post('/users/login',UserController.login);
 
   // Pedidos
 
-router.get('/users/:biuser/pedidos',PedidosController.index);
+router.get('/users/:cliente_Id/pedidos/',PedidosController.index);
 
 router.post('/users/pedidos',PedidosController.store);
 
 router.delete('/users/:id/pedidos',PedidosController.delete);
 
 router.put('/users/:id/pedidos',PedidosController.update);
+
+// Receita
+
+ router.get('/receita',ReceitaController.index);
+
+ router.post('/receita',ReceitaController.store);
+ 
+ router.delete('/receita/:id',ReceitaController.delete);
+ 
+ router.put('/receita/:id',ReceitaController.update);
+
 
 // Pedidos
 

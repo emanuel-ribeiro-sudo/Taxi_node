@@ -3,7 +3,6 @@ const database = require('../config/db')
 const Logs = database.define('logs',{
     acao: {
         type:Sequelize.STRING,
-        primaryKey:true,
         allowNull:false
     },
     data: {

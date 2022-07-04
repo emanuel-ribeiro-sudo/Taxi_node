@@ -50,6 +50,51 @@ module.exports={
         return res.status(400).json({error: err})
     }
     },
+    async getCargo(req,res){
+        try{
+         const users = await User.findOne({
+            where: {
+                email:req.body.email
+            }
+        });
+         if(users == "" || users == null){
+             return res.status(200).send({message:"Nenhum usuario cadastrado"});
+         }
+         return res.status(200).send(users);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+    },
+    async getBi(req,res){
+        try{
+         const users = await User.findOne({
+            where: {
+                email:req.body.email
+            }
+        });
+         if(users == "" || users == null){
+             return res.status(200).send({message:"Nenhum usuario cadastrado"});
+         }
+         return res.status(200).send(users);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+    },
+    async getOne(req,res){
+        try{
+         const users = await User.findOne({
+            where: {
+                bi:req.params.bi
+            }
+        });
+         if(users == "" || users == null){
+             return res.status(200).send({message:"Nenhum usuario cadastrado"});
+         }
+         return res.status(200).send(users);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+    },
     async index(req,res){
         try{
          const users = await User.findAll();

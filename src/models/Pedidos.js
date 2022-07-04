@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db');
-const Cliente = require('./Cliente')
+const User = require('./User')
 
 const Pedidos = database.define('pedidos',{
     id_Pedido: {
@@ -20,12 +20,12 @@ const Pedidos = database.define('pedidos',{
     },
 },
 )
-Pedidos.Cliente = Pedidos.belongsTo(Cliente,{
+User.Cliente = Pedidos.belongsTo(User,{
     constraint:true, 
     foreignKey:'cliente_Id' 
 });
 
-Cliente.hasMany(Pedidos,{ 
+User.hasMany(Pedidos,{ 
     foreignKey:'cliente_Id' 
 })
 module.exports = Pedidos

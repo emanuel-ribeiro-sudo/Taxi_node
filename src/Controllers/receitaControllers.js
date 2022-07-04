@@ -1,17 +1,12 @@
-const Pedidos = require('../models/Pedidos')
+const Receita = require('../models/Receita')
 module.exports={
     async index(req,res){
         try {
-            const pedidos = await Pedidos.findAll({
-                where: {
-                    cliente_Id:req.params.cliente_Id
-                }
+            const receita = await Receita.findAll();
+            if(receita == "" || receita == null){
+                return res.status(200).send({message:"Nenhuma receita encontrado ..."});
             }
-            );
-            if(pedidos == "" || pedidos == null){
-                return res.status(200).send({message:"Nenhum pedido encontrado ..."});
-            }
-            return res.status(200).send(pedidos);
+            return res.status(200).send(receita);
         } catch (err) {
             return res.status(400).json({ error: err });
         }
@@ -19,12 +14,12 @@ module.exports={
     },
     async store(req,res){
         try{
-        const pedido = await Pedidos.create(req.body);
+        const receita = await Receita.create(req.body);
         
         return res.status(200).send({
             status:1,
-            message: 'Pedido Registrado com sucesso', 
-            pedido
+            message: 'Receita Registrado com sucesso', 
+            receita
         })
     }catch (err) {
         return res.status(400).json({error: err})
@@ -32,16 +27,16 @@ module.exports={
     },
     async update(req,res){
         try{
-        await Pedidos.update(req.body,
+        await Receita.update(req.body,
             {
                 where: {
-                    id_Pedido:req.params.id_Pedido
+                    id:req.params.id
                 }
             });
 
             return res.status(200).send({
                 status:1,
-                message: 'Pedido Atualizado com sucesso'
+                message: 'Receita Atualizado com sucesso'
             })
         }catch (err) {
             return res.status(400).json({error: err})
@@ -49,14 +44,14 @@ module.exports={
     },
     async delete(req,res){
         try{
-        await Pedidos.destroy({
+        await Receita.destroy({
             where: {
-                id_Pedido:req.params.id_Pedido
+                id:req.params.id
             }
         });
         return res.status(200).send({
             status:1,
-            message: 'Pedido Deletado com sucesso'
+            message: 'Receita Deletado com sucesso'
         })
     }catch (err) {
         return res.status(400).json({error: err})
