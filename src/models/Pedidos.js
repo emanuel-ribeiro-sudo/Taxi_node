@@ -28,4 +28,6 @@ User.Cliente = Pedidos.belongsTo(User,{
 User.hasMany(Pedidos,{ 
     foreignKey:'cliente_Id' 
 })
+
+
 module.exports = Pedidos

@@ -1,5 +1,37 @@
 const Pedidos = require('../models/Pedidos')
+const Automoveis = require('../models/Automoveis')
 module.exports={
+    async getTaxiPedidos(req,res){
+        
+        try {
+            const pedidos = await Automoveis.findByPk(req.params.automovel,{
+                include: Pedidos,
+                // where:{
+                //     automovel: req.body.automovel
+                // }
+            }
+            );
+            if(pedidos == "" || pedidos == null){
+                return res.status(200).send(pedidos);
+            }
+            return res.status(200).send([pedidos]);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+        
+    },
+    async getAll(req,res){
+        try {
+            const pedidos = await Pedidos.findAll();
+            if(pedidos == "" || pedidos == null){
+                return res.status(200).send({message:"Nenhum pedido encontrado ..."});
+            }
+            return res.status(200).send(pedidos);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+        
+    },
     async index(req,res){
         try {
             const pedidos = await Pedidos.findAll({
@@ -9,7 +41,7 @@ module.exports={
             }
             );
             if(pedidos == "" || pedidos == null){
-                return res.status(200).send({message:"Nenhum pedido encontrado ..."});
+                return res.status(200).send(pedidos);
             }
             return res.status(200).send(pedidos);
         } catch (err) {
@@ -31,11 +63,14 @@ module.exports={
     }
     },
     async update(req,res){
+        const {estado} = req.body;
+        const {id_Pedido} = req.params;
         try{
-        await Pedidos.update(req.body,
+        await Pedidos.update(
+            {estado},
             {
                 where: {
-                    id_Pedido:req.params.id_Pedido
+                    id_Pedido:id_Pedido
                 }
             });
 

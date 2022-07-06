@@ -9,7 +9,17 @@
 //     const Logs = require('./models/Logs')
 //     const Receita = require('./models/Receita')
 //     await database.sync()   
-//  })();
+//     //  const automoveis = await Automoveis.findByPk('ST-16-YU', 
+//     //     {
+//     //         include: Pedidos,User,
+//     //     });
+//     // const pedido = await Pedidos.findAll(
+//     //     {
+//     //         include: Automoveis,
+//     //     });
+   
+//     //     console.log(pedido);
+//   })();
 
 const { request, response } = require('express')
 const express = require('express')

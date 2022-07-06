@@ -1,5 +1,22 @@
 const Automoveis = require('../models/Automoveis')
 module.exports={
+    async getMatricula(req,res){
+        try {
+            const automoveis = await Automoveis.findOne({
+                where:{
+                    taxista_Id:req.body.taxista_Id,
+                    ativo:req.body.ativo
+                }
+            });
+            if(automoveis == "" || automoveis == null){
+                return res.status(200).send(automoveis);
+            }
+            return res.status(200).send(automoveis);
+        } catch (err) {
+            return res.status(400).json({ error: err });
+        }
+        
+    },
     async index(req,res){
         try {
             const automoveis = await Automoveis.findAll();

@@ -4,7 +4,7 @@ module.exports={
         try {
             const receita = await Receita.findAll();
             if(receita == "" || receita == null){
-                return res.status(200).send({message:"Nenhuma receita encontrado ..."});
+                return res.status(200).send(receita);
             }
             return res.status(200).send(receita);
         } catch (err) {
@@ -43,10 +43,11 @@ module.exports={
         }
     },
     async delete(req,res){
+        const {id}= req.params;
         try{
         await Receita.destroy({
             where: {
-                id:req.params.id
+                id:id
             }
         });
         return res.status(200).send({

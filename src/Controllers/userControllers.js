@@ -122,15 +122,17 @@ module.exports={
     }
     },
     async update(req,res){
+        const {telefone,cargo,email,nome}= req.body
         try{
-        await User.update(req.body,
+        await User.update(
+            {
+                telefone,cargo,email,nome
+            },
             {
                 where: {
                     bi:req.params.bi
                 }
             });
-
-            
             return res.status(200).send({
                 status:1,
                 message: 'Usuario Atualizado com sucesso'

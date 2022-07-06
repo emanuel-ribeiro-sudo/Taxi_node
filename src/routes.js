@@ -48,14 +48,17 @@ router.get('/users/:bi',UserController.getOne);
   router.post('/clientes/login',ClientesController.login);
 
   // Pedidos
+router.get('/nhapedido/:automovel',PedidosController.getTaxiPedidos);
 
-router.get('/users/:cliente_Id/pedidos/',PedidosController.index);
+router.get('/pedidos',PedidosController.getAll);
+
+router.get('/users/:cliente_Id/pedidos',PedidosController.index);
 
 router.post('/users/pedidos',PedidosController.store);
 
 router.delete('/users/:id/pedidos',PedidosController.delete);
 
-router.put('/users/:id/pedidos',PedidosController.update);
+router.put('/users/pedidosUpdate/:id_Pedido',PedidosController.update);
 
 // Receita
 
@@ -79,6 +82,7 @@ router.put('/users/:id/pedidos',PedidosController.update);
 //  router.put('/users/:id/pedidos',PedidosController.update);
 
   //Automoveis
+router.post('/automoveis/matricula', AutomoveisController.getMatricula)
 
 router.get('/automoveis', AutomoveisController.index)
 
