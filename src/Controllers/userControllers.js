@@ -88,7 +88,7 @@ module.exports={
             }
         });
          if(users == "" || users == null){
-             return res.status(200).send({message:"Nenhum usuario cadastrado"});
+             return res.status(200).send([users]);
          }
          return res.status(200).send(users);
         } catch (err) {
