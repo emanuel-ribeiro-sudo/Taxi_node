@@ -40,6 +40,10 @@ const User = database.define('user',{
             const salt = bcrypt.genSaltSync();
             user.senha = bcrypt.hashSync(user.senha,salt);
         },
+        // beforeUpdate : (user) => {
+        //     const salt = bcrypt.genSaltSync();
+        //     user.senha = bcrypt.hashSync(user.senha,salt);
+        // }
     }
 })
 module.exports = User

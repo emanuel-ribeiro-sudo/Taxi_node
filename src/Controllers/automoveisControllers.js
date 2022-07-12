@@ -44,8 +44,10 @@ module.exports={
     },
     
     async update(req,res){
+
+        const {taxista_Id} = req.body;
         try{
-        await Automoveis.update(req.body,
+        await Automoveis.update({taxista_Id},
             {
                 where: {
                     matricula:req.params.matricula

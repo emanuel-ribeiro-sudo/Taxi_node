@@ -41,7 +41,7 @@ module.exports={
             }
             );
             if(pedidos == "" || pedidos == null){
-                return res.status(200).send(pedidos);
+                return res.status(200).send(null);
             }
             return res.status(200).send(pedidos);
         } catch (err) {
